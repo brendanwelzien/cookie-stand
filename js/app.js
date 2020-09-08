@@ -98,6 +98,7 @@ hourtotal = [];
         shopdata[s].sumofsales();
         for( var hour = 0; hour < shopdata[s].saleshr.length; hour++){
             var listItemTwo = document.createElement('li');
+    
             listItemTwo.textContent = `${hours[hour]}: ${shopdata[s].saleshr[hour]} cookies`;
             list.append(listItemTwo);
             console.log(listItemTwo);
@@ -107,7 +108,85 @@ hourtotal = [];
         var listItem = document.createElement('li');
         listItem.textContent = `${shopdata[s].location} has ${shopdata[s].dailytotalsales} cookies`;
         list.appendChild(listItem);
-        }
+    }
 }
-renderAllStoreTotals();
+
+// renderAllStoreTotals();
 console.log(shopdata);
+
+var tableElement = document.getElementById('cookieTable');
+//header
+function headerFunction() {
+    var headerRows = document.createElement('tr');
+    var cellBlock = document.createElement('td');
+    cellBlock.textContent = 'location';
+    headerRows.appendChild(cellBlock);
+
+    for (var d = 0; d < hours.length; d++){
+        var followingHeader = document.createElement('td');
+        followingHeader.textContent = hours[d];
+        headerRows.appendChild(followingHeader);
+    }
+    var allCellBlocks = document.createElement('td');
+    allCellBlocks.textContent ='Total per Day';
+    headerRows.appendChild(allCellBlocks);
+    tableElement.appendChild(headerRows);
+
+}
+
+
+
+// adds data to rows
+shops.prototype.injectData = function (tableRow, location, sumofsales) {
+    var td = document.createElement('td');
+    td.textContent = location;
+    tableRow.appendChild(td);
+
+    for(var h=0; h < hours.length; h++){
+        var following_td = document.createElement('td');
+        following_td.textContent = this.saleshr[h];
+        tableRow.appendChild(following_td);
+    }
+
+    var tabledCookies = document.createElement('td');
+    tabledCookies.textContent = sumofsales;
+    tableRow.appendChild(tabledCookies);
+}
+// rendering the table and adds rows
+shops.prototype.addingRows = function() {
+    var location = this.location;
+    var tabledCookies = this.sumofsales();
+    var tableRow = document.createElement('tr');
+    this.injectData(tableRow, location, tabledCookies);
+    tableElement.appendChild(tableRow);
+};
+
+
+//footer 
+/* function footerFunction(){
+    perhourtotal();
+    var footerRows = document.createElement('tr');
+    var footerCells = document.createElement('td');
+    footerCells.textContent = 'Totals';
+    footerRows.appendChild(footerCells);
+
+    for (var f = 0; f < hours.length; f++){
+        var followingFooter = document.createElement('td');
+        followingFooter.textContent = hourtotal[f];
+        footerRows.appendChild(followingFooter);
+    }
+    var totalOfTheDay = document.createElement('td');
+    totalOfTheDay.textContent=dailyTotal(); 
+    footerRows.appendChild(totalOfTheDay);
+    tableElement.appendChild(footerRows);
+}
+*/
+
+// building the table
+function theTable() {
+    headerFunction();
+    for (var t=0; t < shopdata.length; t++){
+        shopdata[t].addingRows();
+    }
+} 
+theTable();
