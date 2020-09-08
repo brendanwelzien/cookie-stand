@@ -91,6 +91,10 @@ hourtotal = [];
  function renderAllStoreTotals() {
     var list = document.getElementById('cityData');
     for(var s = 0; s < shopdata.length; s++){
+        var city = document.createElement('h3');
+        city.textContent = shopdata[s].location;
+        list.appendChild(city);
+
         shopdata[s].sumofsales();
         for( var hour = 0; hour < shopdata[s].saleshr.length; hour++){
             var listItemTwo = document.createElement('li');
