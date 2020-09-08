@@ -89,11 +89,14 @@ hourtotal = [];
 
 // this is total for the day between stores
  function renderAllStoreTotals() {
-    var list = document.getElementById('storeDailyTotalList');
+    var list = document.getElementById('cityData');
     for(var s = 0; s < shopdata.length; s++){
         shopdata[s].sumofsales();
         for( var hour = 0; hour < shopdata[s].saleshr.length; hour++){
-            
+            var listItemTwo = document.createElement('li');
+            listItemTwo.textContent = `${hours[hour]}: ${shopdata[s].saleshr[hour]} cookies`;
+            list.append(listItemTwo);
+            console.log(listItemTwo);
         }
         console.log(shopdata[s].location);
         console.log(shopdata[s].saleshr);
