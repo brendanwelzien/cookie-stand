@@ -63,7 +63,7 @@ shops.prototype.sumofsales = function(){
         this.saleshr.push(this.averagesales(i));
         sum = sum + this.saleshr[i];
     }
-this.dailytotalsales = sum;
+    this.dailytotalsales = sum;
     return sum;
    // console.log(`${this.location}`);
    // console.log(`${hours[i]}: ${this.saleshr[i]} cookies purchased`);
@@ -184,11 +184,11 @@ shops.prototype.addingRows = function() {
     
     var finalTotalCount= 0;
     var finalSalesHourly = 0;
-    for (var vertical = 0;  vertical < hours.length; vertical++){
+    for (var horizontal = 0;  horizontal < hours.length; horizontal++){
         finalSalesHourly= 0;
-        for ( var horizontal = 0; horizontal < storeArray.length; horizontal++){
-            finalSalesHourly += storeArray[horizontal].saleshr[vertical];
-            finalTotalCount += storeArray[horizontal].saleshr[vertical];
+        for ( var vertical = 0; vertical < storeArray.length; vertical++){
+            finalSalesHourly += storeArray[vertical].saleshr[horizontal];
+            finalTotalCount += storeArray[vertical].saleshr[horizontal];
             // console.log(finalSalesHourly);
             } 
             var finalHour = document.createElement('td');
@@ -211,4 +211,50 @@ function theTable() {
     }
     footerFunction();
 } 
+
+//retrieve form ID
+
+var theForm = document.getElementById('newCookieStore');
+
+
+
+
+
+
+
+
+
+
+
+// create a function that creates a new store
+function createCookieStore(event){
+    event.preventDefault(); // prevents submit button from creating an error
+
+var averagecookie = event.target.averageSale.value;
+var location = event.target.store.value;
+var min = event.target.minCustomers.value;
+var max = event.target.maxCustomers.value;
+
+// add the inputted store data to the array for the table
+
+var newCookieBranch = new shops(location, min, max, averagecookie);
+shopdata.push(newCookieBranch);
+tableElement.innerHTML= ''; // this returns the new changes
+
+// calculate sum of cookies for new store
+
+newCookieBranch.sumofsales();
+
+// build table again
+theTable();
+
+}
+theForm.addEventListener('submit', createCookieStore);
+
+// now that we have added the form, display new store on table
+
+for (var s = 0; s < shopdata.length; s++){
+    shopdata[s].sumofsales();
+}
+console.log(shopdata)
 theTable();
