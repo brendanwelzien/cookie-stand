@@ -1,9 +1,16 @@
+* {
+    font-family: 'Crimson Text', serif;
+    width:auto;
+}
+li{
+    list-style-type:none;
+}
 header{
     color:rgb(235, 11, 11);
-    background: rgb(100, 224, 224)
+    background: rgb(100, 224, 224);
 }
 h1 { text-align: center;
-    color:rgba(233, 124, 112, 0.781);
+    color:rgba(237, 118, 118, 0.781);
 }
 
 nav { text-align: center;
@@ -19,21 +26,46 @@ h2{ color:salmon;
 h3{ color:salmon;
     float:left;
     font-size: 40px;
+    margin-left:100px;
+    background: rgb(100, 224, 224);
+    padding:5px;
+}
+
+.aboutUs {
+    color:salmon;
+    float:left;
+    font-size: 40px;
     margin-left: 50px;
 }
 section{
 
 }
-
+ #paragraph {
+     font-weight: 200;
+     color:black;
+}
 section > p {margin-left: 50px;
     padding:20px;
     padding-left: 40%;
+    background:salmon;
 }
 section > ul {
 
 }
 section > ul > li{
 padding:30px;
+text-align: center
+}
+section > ul > li:nth-child(2){
+    float:left;
+}
+section > ul > li:first-of-type{
+    float:left;
+    margin:20px;
+    margin-left:100px;
+}
+.salmon{
+    margin-right:140px;
 }
 section > ul img {
     
@@ -42,7 +74,9 @@ article {
 
 }
 article > p {
-
+text-align: center;
+font-size: 1.2em;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 article > p h2{
 
@@ -52,21 +86,31 @@ article > p h2{
 }
 
 fieldset{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+font: 2em;
 
 }
 
 form button {
-
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 2em;
 }
 
-form {
-
-}
 
 legend{
 
 }
 
 table{
-
+width:960px;
+margin: auto;
+border: 3px solid salmon;
 }
+
+td {
+    border: 1px solid salmon;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9em;
+}
+
+

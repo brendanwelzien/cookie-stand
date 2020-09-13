@@ -216,16 +216,6 @@ function theTable() {
 
 var theForm = document.getElementById('newCookieStore');
 
-
-
-
-
-
-
-
-
-
-
 // create a function that creates a new store
 function createCookieStore(event){
     event.preventDefault(); // prevents submit button from creating an error
