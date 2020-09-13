@@ -6,24 +6,23 @@ li{
     list-style-type:none;
 }
 header{
-    color:rgb(235, 11, 11);
-    background: rgb(100, 224, 224);
+    background-image: linear-gradient(to bottom right,salmon,aquamarine)
 }
+
 h1 { text-align: center;
-    color:rgba(237, 118, 118, 0.781);
+    color:rgba(12, 216, 243, 0.781);
 }
 
 nav { text-align: center;
     font-size: 25px;
-
+    padding-bottom:10px;
 }
 
-h2{ color:salmon;
+h2 { color:salmon;
     text-align:center;
     font-size:25px;
-
 }
-h3{ color:salmon;
+h3 {color:salmon;
     float:left;
     font-size: 40px;
     margin-left:100px;
@@ -52,6 +51,13 @@ section > p {margin-left: 50px;
 section > ul {
 
 }
+
+p.Family{
+text-align: left;
+width:100px;
+margin-left:170px;
+}
+
 section > ul > li{
 padding:30px;
 text-align: center
@@ -81,8 +87,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 article > p h2{
 
 }
-* {
-
+.fishCookie {
+display: block;
 }
 
 fieldset{
@@ -94,6 +100,13 @@ font: 2em;
 form button {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font: 2em;
+}
+.picTrio {
+    background-image: linear-gradient(to bottom right,salmon,aquamarine)
+}
+
+.fishCookie {
+    padding-left:30px;
 }
 
 
